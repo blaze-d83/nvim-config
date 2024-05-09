@@ -11,5 +11,24 @@ return {
 		require("nvim-web-devicons").setup()
 		require("nvim-web-devicons").has_loaded()
 		vim.g.nvim_web_devicons_debug = true
+		require("neo-tree").setup({
+			window = {
+				width = 30,
+			},
+			filesystem = {
+				filtered_items = {
+					visible = true,
+					hide_dotfiles = false,
+					hide_gitignored = true,
+					hide_hidden = false,
+					hide_by_name = {
+						"node_modules",
+					},
+					never_show = {
+						".git",
+					},
+				},
+			},
+		})
 	end,
 }
