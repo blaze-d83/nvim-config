@@ -12,6 +12,8 @@ return {
 		require("nvim-web-devicons").has_loaded()
 		vim.g.nvim_web_devicons_debug = true
 		require("neo-tree").setup({
+			popup_border_style = "rounded",
+			indent = { padding = 1.5 },
 			window = {
 				width = 30,
 			},

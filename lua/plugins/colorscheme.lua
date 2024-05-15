@@ -21,14 +21,6 @@ local themes = {
 		end,
 	},
 
-	-- Monokai Pro Theme
-	["monokai-pro"] = {
-		"loctvl842/monokai-pro.nvim",
-		config = function()
-			require("monokai-pro").setup()
-		end,
-	},
-
 	-- Catppuccin theme
 	["catppuccin"] = {
 		"catppuccin/nvim",
@@ -177,7 +169,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "rose-pine"
+local selected_theme = "tokyonight"
 
 -- Return the table
 return themes[selected_theme]
