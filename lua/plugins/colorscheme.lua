@@ -21,6 +21,14 @@ local themes = {
 		end,
 	},
 
+	-- Monokai Pro Theme
+	["monokai-pro"] = {
+		"loctvl842/monokai-pro.nvim",
+		config = function()
+			require("monokai-pro").setup()
+		end,
+	},
+
 	-- Catppuccin theme
 	["catppuccin"] = {
 		"catppuccin/nvim",
