@@ -30,68 +30,68 @@ local themes = {
 		config = function()
 			require("catppuccin").setup({
 				background = {
-					light = "macchiato",
+					light = "latte",
 					dark = "mocha",
 				},
 				color_overrides = {
 					latte = {
-						rosewater = "#c14a4a",
-						flamingo = "#c14a4a",
-						red = "#c14a4a",
-						maroon = "#c14a4a",
-						pink = "#945e80",
-						mauve = "#945e80",
-						peach = "#c35e0a",
-						yellow = "#b47109",
-						green = "#6c782e",
-						teal = "#4c7a5d",
-						sky = "#4c7a5d",
-						sapphire = "#4c7a5d",
-						blue = "#45707a",
-						lavender = "#45707a",
-						text = "#654735",
-						subtext1 = "#73503c",
-						subtext0 = "#805942",
-						overlay2 = "#8c6249",
-						overlay1 = "#8c856d",
-						overlay0 = "#a69d81",
-						surface2 = "#bfb695",
-						surface1 = "#d1c7a3",
-						surface0 = "#e3dec3",
 						base = "#f9f5d7",
+						rosewater = "#c38c84", -- Dusty rose
+						flamingo = "#c38c84", -- Dusty rose
+						red = "#a8554b", -- Deep terracotta
+						maroon = "#a8554b", -- Deep terracotta
+						pink = "#d3869b", -- Dusty mauve
+						mauve = "#d3869b", -- Dusty mauve
+						peach = "#e78a4e", -- Warm peach
+						yellow = "#d8a657", -- Earthy yellow
+						green = "#a9b665", -- Olive green
+						teal = "#89b482", -- Desert teal
+						sky = "#89b482", -- Desert teal
+						sapphire = "#89b482", -- Desert teal
+						blue = "#7daea3", -- Dusty blue
+						lavender = "#7daea3", -- Dusty blue
+						text = "#654735", -- Dark brown text
+						subtext1 = "#73503c", -- Slightly lighter brown
+						subtext0 = "#805942", -- Lighter brown
+						overlay2 = "#8c6249", -- Light brown
+						overlay1 = "#8c856d", -- Medium brown
+						overlay0 = "#a69d81", -- Light brown
+						surface2 = "#bfb695", -- Light beige
+						surface1 = "#d1c7a3", -- Beige
+						surface0 = "#e3dec3", -- Very light beige
 						mantle = "#f0ebce",
 						crust = "#e8e3c8",
 					},
 					mocha = {
-						rosewater = "#ea6962",
-						flamingo = "#ea6962",
-						red = "#ea6962",
-						maroon = "#ea6962",
-						pink = "#d3869b",
-						mauve = "#d3869b",
-						peach = "#e78a4e",
-						yellow = "#d8a657",
-						green = "#a9b665",
-						teal = "#89b482",
-						sky = "#89b482",
-						sapphire = "#89b482",
-						blue = "#7daea3",
-						lavender = "#7daea3",
-						text = "#ebdbb2",
-						subtext1 = "#d5c4a1",
-						subtext0 = "#bdae93",
-						overlay2 = "#a89984",
-						overlay1 = "#928374",
-						overlay0 = "#595959",
-						surface2 = "#4d4d4d",
-						surface1 = "#404040",
-						surface0 = "#292929",
 						base = "#1d2021",
 						mantle = "#191b1c",
 						crust = "#141617",
+						rosewater = "#c38c84", -- Dusty rose
+						flamingo = "#c38c84", -- Dusty rose
+						red = "#a8554b", -- Deep terracotta
+						maroon = "#a8554b", -- Deep terracotta
+						pink = "#d3869b", -- Dusty mauve
+						mauve = "#d3869b", -- Dusty mauve
+						peach = "#e78a4e", -- Warm peach
+						yellow = "#d8a657", -- Earthy yellow
+						green = "#a9b665", -- Olive green
+						teal = "#89b482", -- Desert teal
+						sky = "#89b482", -- Desert teal
+						sapphire = "#89b482", -- Desert teal
+						blue = "#7daea3", -- Dusty blue
+						lavender = "#7daea3", -- Dusty blue
+						text = "#654735", -- Dark brown text
+						subtext1 = "#73503c", -- Slightly lighter brown
+						subtext0 = "#805942", -- Lighter brown
+						overlay2 = "#8c6249", -- Light brown
+						overlay1 = "#8c856d", -- Medium brown
+						overlay0 = "#a69d81", -- Light brown
+						surface2 = "#bfb695", -- Light beige
+						surface1 = "#d1c7a3", -- Beige
+						surface0 = "#e3dec3", -- Very light beige
 					},
 				},
-				transparent_background = false,
+				transparent_background = true,
 				show_end_of_buffer = false,
 				integration_default = false,
 				integrations = {
@@ -105,6 +105,7 @@ local themes = {
 					neotree = true,
 					semantic_tokens = true,
 					treesitter = true,
+					telescope = true,
 					treesitter_context = true,
 					vimwiki = true,
 					which_key = true,
@@ -113,11 +114,50 @@ local themes = {
 					all = function(colors)
 						return {
 							-- Your highlight overrides here
+							-- Normal mode cursor
+							Cursor = { bg = colors.blue },
+							-- Visual mode cursor
+							Visual = { bg = colors.blue },
+							-- Search highlighting
+							Search = { bg = colors.overlay0, fg = colors.text },
+							-- Current line
+							CursorLine = { bg = colors.surface1 },
+							-- Current column
+							CursorColumn = { bg = colors.surface1 },
+							-- Line number in NERDTree
+							SignColumn = { bg = "NONE" },
+							-- Folded lines
+							Folded = { bg = colors.mantle, fg = colors.text },
+							-- Fold column
+							FoldColumn = { bg = "NONE", fg = colors.text },
+							-- Diff text
+							DiffAdd = { bg = "NONE", fg = colors.green },
+							DiffChange = { bg = "NONE", fg = colors.yellow },
+							DiffDelete = { bg = "NONE", fg = colors.red },
+							-- Error messages
+							ErrorMsg = { bg = "NONE", fg = colors.red },
+							-- Mode text (e.g., -- INSERT --)
+							ModeMsg = { bg = "NONE", fg = colors.text },
+							-- Terminal text
+							Terminal = { bg = colors.surface0, fg = colors.subtext0 },
+							-- Warning messages
+							WarningMsg = { bg = "NONE", fg = colors.yellow },
+							-- Line breakpoints
+							Breakpoint = { bg = "NONE", fg = colors.red },
+							-- Breakpoint pending
+							BreakpointPending = { bg = "NONE", fg = colors.yellow },
+							-- Breakpoint enabled
+							BreakpointEnabled = { bg = "NONE", fg = colors.green },
 						}
 					end,
 					latte = function(colors)
 						return {
 							-- Your highlight overrides specific to the latte palette here
+						}
+					end,
+					mocha = function(colors)
+						return {
+							-- Your highlight overrides specific to the mocha palette here
 						}
 					end,
 				},
