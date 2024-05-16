@@ -17,10 +17,6 @@ local plugin = {
 				float_opts = {
 					border = "curved",
 					windblend = 0,
-					highlights = {
-						border = "Normal",
-						background = "Normal",
-					},
 				},
 			})
 		end,

@@ -22,6 +22,16 @@ return { -- Fuzzy Finder
 	},
 	config = function()
 		require("telescope").setup({
+			defaults = {
+				file_ignore_patterns = {
+					"node_modules",
+					"%_files/",
+					"%_cache",
+					".git/",
+					".site_libs",
+					".venv",
+				},
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),
