@@ -52,7 +52,21 @@ return {
 					},
 				},
 			},
-			rust_analyzer = {},
+			rust_analyzer = {
+				on_attach = function(client, bufnr)
+					-- Your on_attach function here
+				end,
+				capabilities = capabilities,
+				filetype = { "rust" },
+				root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
+				settings = {
+					["rust-analyzer"] = {
+						cargo = {
+							allFeatures = true,
+						},
+					},
+				},
+			},
 			gopls = {},
 			tsserver = {},
 			html = {},
