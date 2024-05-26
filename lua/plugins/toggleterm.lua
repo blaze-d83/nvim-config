@@ -3,18 +3,18 @@ local plugin = {
 		"akinsho/toggleterm.nvim",
 		config = function()
 			require("toggleterm").setup({
-				size = 20,
-				open_mapping = [[<C-\>]],
-				hide_numbers = true,
+				size            = 20,
+				open_mapping    = [[<C-\>]],
+				hide_numbers    = true,
 				shade_filetypes = {},
 				shade_terminals = true,
 				start_in_insert = true,
 				insert_mappings = true,
-				persist_size = true,
-				direction = "float",
-				shell = vim.o.shell,
-				auto_scroll = true,
-				float_opts = {
+				persist_size    = true,
+				direction       = "float",
+				shell           = vim.o.shell,
+				auto_scroll     = true,
+				float_opts      = {
 					border = "curved",
 					windblend = 0,
 				},

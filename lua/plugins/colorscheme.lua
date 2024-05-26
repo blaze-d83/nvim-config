@@ -3,10 +3,10 @@ local themes = {
 	-- Tokyonight theme
 	["tokyonight"] = {
 		"folke/tokyonight.nvim",
-		lazy = false,
+		lazy     = false,
 		priority = 1000,
-		opts = {},
-		config = function()
+		opts     = {},
+		config   = function()
 			vim.cmd("colorscheme tokyonight-moon")
 		end,
 	},
@@ -14,9 +14,9 @@ local themes = {
 	-- Rose Pine theme
 	["rose-pine"] = {
 		"rose-pine/neovim",
-		lazy = false,
+		lazy     = false,
 		priority = 1000,
-		config = function()
+		config   = function()
 			vim.cmd("colorscheme rose-pine")
 		end,
 	},
@@ -169,7 +169,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "tokyonight"
+local selected_theme = "rose-pine"
 
 -- Return the table
 return themes[selected_theme]
