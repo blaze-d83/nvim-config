@@ -19,14 +19,14 @@ return {
 			},
 			filesystem = {
 				filtered_items = {
-					visible = true,
-					hide_dotfiles = false,
+					visible         = true,
+					hide_dotfiles   = false,
 					hide_gitignored = true,
-					hide_hidden = false,
-					hide_by_name = {
+					hide_hidden     = false,
+					hide_by_name    = {
 						"node_modules",
 					},
-					never_show = {
+					never_show      = {
 						".git",
 					},
 				},

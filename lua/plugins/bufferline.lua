@@ -1,15 +1,15 @@
 return {
 	"akinsho/bufferline.nvim",
-	version = "*",
+	version  = "*",
 	requires = { "nvim-tree/nvim-web-devicons" },
-	config = function()
+	config   = function()
 		vim.opt.termguicolors = true
 		require("bufferline").setup({
 			options = {
 				mode = "buffers",
 				offsets = {
-					filetype = "nvim-tree",
-					text = "File Explorer",
+					filetype  = "Neotree",
+					text      = "File Explorer",
 					highlight = "Directory",
 					separator = true,
 				},
@@ -17,4 +17,7 @@ return {
 		})
 	end,
 	vim.keymap.set("n", "<leader>bl", ":BufferLinePick<CR>"),
+
+    vim.keymap.set("n", "<leader>bd", ":BufferLinePickClose<CR>"),
+    vim.keymap.set("n", "<leader>bx", ":BufferLineCloseOthers<CR>"),
 }
