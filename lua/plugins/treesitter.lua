@@ -15,6 +15,7 @@ return {
 			"css",
 			"html",
 			"typescript",
+            "go",
 		},
 		auto_install = true,
 		highlight    = { enable = true },
