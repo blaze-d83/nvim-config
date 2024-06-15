@@ -3,6 +3,7 @@ return {
 	build        = ":TSUpdate",
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
+        "windwp/nvim-ts-autotag",
 	},
 	opts = {
 		ensure_installed = {
@@ -18,7 +19,7 @@ return {
             "go",
 		},
 		auto_install = true,
-		highlight    = { enable = true },
+		highlight    = { enable = true, addtional_vim_regex_highlighting = false, },
 		indent       = { enable = true },
 		textobjects  = {
 			select = {
@@ -29,5 +30,13 @@ return {
 	},
 	config = function(_, opts)
 		require("nvim-treesitter.configs").setup(opts)
+        require("ibl").setup({
+            scope = {
+                enabled = false,
+            }
+        })
+        require("nvim-ts-autotag").setup({
+            opts = {}
+        })
 	end,
 }

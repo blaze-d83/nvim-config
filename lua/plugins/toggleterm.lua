@@ -11,7 +11,7 @@ local plugin = {
 				start_in_insert = true,
 				insert_mappings = true,
 				persist_size    = true,
-				direction       = "float",
+				direction       = "horizontal",
 				shell           = vim.o.shell,
 				auto_scroll     = true,
 				float_opts      = {
@@ -26,7 +26,7 @@ local plugin = {
 function _G.set_terminal_keymaps()
 	local opts = { noremap = true, silent = true }
 	vim.api.nvim_set_keymap("t", "<Esc>", "<C-\\><C-n>", opts)
-	vim.api.nvim_set_keymap("t", "jk", "<C-\\><C-n>", opts)
+	vim.api.nvim_set_keymap("t", "jj", "<C-\\><C-n>", opts)
 	vim.api.nvim_set_keymap("t", "<C-h>", "<Cmd>wincmd h<CR>", opts)
 	vim.api.nvim_set_keymap("t", "<C-j>", "<Cmd>wincmd j<CR>", opts)
 	vim.api.nvim_set_keymap("t", "<C-k>", "<Cmd>wincmd k<CR>", opts)
