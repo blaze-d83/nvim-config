@@ -1,7 +1,7 @@
 return {
   {
     'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }, -- make sure to include plenary.nvim as a dependency
+    requires = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('gitsigns').setup {
         signs = {
