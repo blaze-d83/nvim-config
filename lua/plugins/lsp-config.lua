@@ -71,11 +71,23 @@ return {
 				},
 			},
 			gopls    = {},
-			tsserver = {},
+			tsserver = {
+                on_attach = function(client, bufnr)
+                    local ts_utils = require("nvim-lsp-ts-utils")
+                    ts_utils.setup({})
+                    ts_utils.setup_client(client)
+                end,
+                settings = {
+                    eslint = {
+                        enable = true,
+                    },
+                },
+            },
 			html     = {},
 			cssls    = {},
 			pyright  = {},
 			clangd   = {},
+            zls      = {},
 		}
 
 		require("mason").setup()

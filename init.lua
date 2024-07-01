@@ -11,6 +11,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 vim.g.python3_host_prog = "C:/Users/Admin/AppData/Local/Programs/Python/Python312/python.exe"
+vim.g.hurl_executable = "C:/ProgramData/chocolatey/lib/hurl/tools/hurl.exe"
 
 require("vim-options")
 require("lazy").setup("plugins")
