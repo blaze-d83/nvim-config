@@ -7,7 +7,7 @@ return {
 		"MunifTanjim/nui.nvim",
 	},
 	config = function()
-		vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal left<CR>", {})
+		vim.keymap.set("n", "<leader>e", ":Neotree filesystem reveal float<CR>", {})
 		require("nvim-web-devicons").setup()
 		require("nvim-web-devicons").has_loaded()
 		vim.g.nvim_web_devicons_debug = true
