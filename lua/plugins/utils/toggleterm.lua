@@ -1,3 +1,4 @@
+local shell = vim.fn.executable("pwsh") == 1 and "pwsh" or "powershell"
 local plugin = {
 	{
 		"akinsho/toggleterm.nvim",
@@ -12,9 +13,9 @@ local plugin = {
 				insert_mappings = true,
 				persist_size    = true,
 				direction       = "horizontal",
-				shell           = "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+                shell           = shell,
 				auto_scroll     = true,
-                border = "horizontal",
+                border          = "horizontal",
 			})
 		end,
 	},
@@ -35,3 +36,4 @@ end
 vim.cmd("autocmd! TermOpen term://* lua set_terminal_keymaps()")
 
 return plugin
+

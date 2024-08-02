@@ -16,8 +16,4 @@ return {
 			},
 		})
 	end,
-	vim.keymap.set("n", "<leader>bl", ":BufferLinePick<CR>"),
-
-    vim.keymap.set("n", "<leader>bd", ":BufferLinePickClose<CR>"),
-    vim.keymap.set("n", "<leader>bx", ":BufferLineCloseOthers<CR>"),
 }

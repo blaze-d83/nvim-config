@@ -7,10 +7,10 @@ return {
 		{ "j-hui/fidget.nvim", opts = {} },
 		{ "folke/neodev.nvim", opts = {} },
 	},
- config = function()
-        vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-            border = "rounded"
-        })
+	config = function()
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = "single",
+		})
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -18,15 +18,15 @@ return {
 					vim.keymap.set("n", keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 				end
 
-				map("gd",         require("telescope.builtin").lsp_definitions,      "[G]oto [D]efinition")
-				map("gr",         require("telescope.builtin").lsp_references,       "[G]oto [R]eferences")
-				map("gI",         require("telescope.builtin").lsp_implementations,  "[G]oto [I]mplementation")
-				map("<leader>D",  require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
+				map("gd", require("telescope.builtin").lsp_definitions, "[G]oto [D]efinition")
+				map("gr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
+				map("gI", require("telescope.builtin").lsp_implementations, "[G]oto [I]mplementation")
+				map("<leader>D", require("telescope.builtin").lsp_type_definitions, "Type [D]efinition")
 				map("<leader>ds", require("telescope.builtin").lsp_document_symbols, "[D]ocument [S]ymbols")
-				map("<leader>rn", vim.lsp.buf.rename,                                "[R]e[n]ame")
-				map("<leader>ca", vim.lsp.buf.code_action,                           "[C]ode [A]ction")
-				map("K",          vim.lsp.buf.hover,                                 "Hover Documentation")
-				map("gD",         vim.lsp.buf.declaration,                           "[G]oto [D]eclaration")
+				map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+				map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction")
+				map("K", vim.lsp.buf.hover, "Hover Documentation")
+				map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if client and client.server_capabilities.documentHighlightProvider then
@@ -70,24 +70,41 @@ return {
 					},
 				},
 			},
-			gopls    = {},
+
+			gopls = {
+				filetypes = { "go", "gomod", "gotmpl", "gowork" },
+				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
+			},
+
 			tsserver = {
-                on_attach = function(client, bufnr)
-                    local ts_utils = require("nvim-lsp-ts-utils")
-                    ts_utils.setup({})
-                    ts_utils.setup_client(client)
-                end,
-                settings = {
-                    eslint = {
-                        enable = true,
-                    },
-                },
-            },
-			html     = {},
-			cssls    = {},
-			pyright  = {},
-			clangd   = {},
-            zls      = {},
+				on_attach = function(client, bufnr)
+					local ts_utils = require("nvim-lsp-ts-utils")
+					ts_utils.setup({})
+					ts_utils.setup_client(client)
+				end,
+				settings = {
+					eslint = {
+						enable = true,
+					},
+				},
+			},
+			html = {},
+			cssls = {},
+			clangd = {},
+			pyright = {
+				settings = {
+					python = {
+						analysis = {
+							typeCheckingMode = "off",
+						},
+					},
+				},
+			},
+			zls = {},
+			jsonls = {
+				filetype = { "json", "jsonc" },
+				settings = {},
+			},
 		}
 
 		require("mason").setup()

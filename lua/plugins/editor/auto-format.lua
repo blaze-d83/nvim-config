@@ -23,7 +23,9 @@ return {
 			html       = { "prettier" },
 			rust       = { "rustfmt" },
             go         = {"gofmt"},
-            zig        = {"fmt.zig"}
+            zig        = {"fmt.zig"},
+            json       = { "prettier" },
+            jsonc      = { "prettier" },
 			-- Add more languages and corresponding formatters here
 		},
 	},
