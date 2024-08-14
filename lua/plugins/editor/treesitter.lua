@@ -18,7 +18,7 @@ return {
 			"typescript",
             "go",
             "zig",
-            "hurl",
+            "templ",
 		},
 		auto_install = true,
 		highlight    = { enable = true, addtional_vim_regex_highlighting = false, },

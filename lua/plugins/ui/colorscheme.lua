@@ -1,5 +1,6 @@
 -- Define configurations for themes
 local themes = {
+
 	-- Tokyonight theme
 	["tokyonight"] = {
 		"folke/tokyonight.nvim",
@@ -31,10 +32,20 @@ local themes = {
 		end,
 	},
 
+    ["catppuccin"] = {
+        "catppuccin/nvim",
+         name = "catppuccin",
+         priority = 1000,
+        config = function()
+            require("catppuccin").setup({})
+            vim.cmd([[colorscheme catppuccin]])
+        end,
+    },
+
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "okai"
+local selected_theme = "rose-pine"
 
 -- Return the table
 return themes[selected_theme]

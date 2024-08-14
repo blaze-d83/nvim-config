@@ -6,6 +6,7 @@ return {
 		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		{ "j-hui/fidget.nvim", opts = {} },
 		{ "folke/neodev.nvim", opts = {} },
+		"jose-elias-alvarez/nvim-lsp-ts-utils",
 	},
 	config = function()
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
@@ -88,8 +89,23 @@ return {
 					},
 				},
 			},
-			html = {},
+			html = {
+				filetypes = { "html" },
+			},
+			htmx = {
+				filetypes = { "html" },
+			},
 			cssls = {},
+			tailwindcss = {
+				filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+				settings = {
+					tailwindCSS = {
+						includeLanguages = {
+							templ = "html",
+						},
+					},
+				},
+			},
 			clangd = {},
 			pyright = {
 				settings = {
