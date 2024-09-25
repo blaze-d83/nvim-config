@@ -40,19 +40,3 @@
 └── README.md                              # This file
 
 ```
-
-## Key Features:
-Language Server Protocol (LSP): Configured with multiple language servers for code linting, completion, and diagnostics.
-Treesitter                    : Syntax highlighting and code parsing for enhanced editor features.
-Autocompletion                : Auto-cmp provides smart suggestions as you type.
-File Navigation               :
-Neo-tree                      : Easy navigation of the file tree.
-Telescope                     : Fuzzy finder for files, buffers, and more.
-UI Enhancements               :
-Lualine                       : Customizable status line with useful information.
-Bufferline                    : Tab-like management for buffers.
-Dashboard                     : Custom dashboard with shortcuts and information at startup.
-Indent Blankline              : Shows indentation levels with vertical lines.
-Obsidian Integration          : Allows for note management directly within Neovim.
-Git Integration               : Git signs and diffs directly in the editor.
-Terminal Management           : Integrated terminal with toggleterm for smooth workflow.
