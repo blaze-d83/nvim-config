@@ -29,6 +29,8 @@ require("lazy").setup({
 
 		{ import = "plugins/utils" },
 
+		{ import = "plugins/obsidian" },
+
 		{ import = "scripts" },
 	},
 

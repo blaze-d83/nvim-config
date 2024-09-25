@@ -4,6 +4,7 @@ return {
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter-textobjects",
         "windwp/nvim-ts-autotag",
+        'vrischmann/tree-sitter-templ',
 	},
 	opts = {
 		ensure_installed = {

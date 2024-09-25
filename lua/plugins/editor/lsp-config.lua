@@ -1,14 +1,15 @@
 return {
 	"neovim/nvim-lspconfig",
 	dependencies = {
-		"williamboman/mason.nvim",
-		"williamboman/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-		{ "j-hui/fidget.nvim", opts = {} },
-		{ "folke/neodev.nvim", opts = {} },
-		"jose-elias-alvarez/nvim-lsp-ts-utils",
+		"williamboman/mason.nvim", -- Manage LSP Servers, DAP Servers, and formatters
+		"williamboman/mason-lspconfig.nvim", -- Bridge between Mason and nvim-lspconfig
+		"WhoIsSethDaniel/mason-tool-installer.nvim", -- Automatically install tools using Mason
+		{ "j-hui/fidget.nvim", opts = {} }, -- Show LSP status
+		{ "folke/neodev.nvim", opts = {} }, -- Better Lua dev experience
+		"jose-elias-alvarez/nvim-lsp-ts-utils", -- TS/JS utilities like organizing imports
 	},
 	config = function()
+		vim.lsp.set_log_level("debug")
 		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
 			border = "single",
 		})
@@ -46,6 +47,10 @@ return {
 		local capabilities = vim.lsp.protocol.make_client_capabilities()
 		capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
+		local function on_attach()
+			-- Define on_attach login here
+		end
+
 		local servers = {
 			lua_ls = {
 				settings = {
@@ -57,9 +62,7 @@ return {
 				},
 			},
 			rust_analyzer = {
-				on_attach = function(client, bufnr)
-					-- Your on_attach function here
-				end,
+				on_attach = on_attach(),
 				capabilities = capabilities,
 				filetype = { "rust" },
 				root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
@@ -73,7 +76,7 @@ return {
 			},
 
 			gopls = {
-				filetypes = { "go", "gomod", "gotmpl", "gowork" },
+				filetypes = { "go", "gomod", "gotmpl", "gowork", },
 				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
 			},
 
@@ -90,10 +93,13 @@ return {
 				},
 			},
 			html = {
-				filetypes = { "html" },
+				filetypes = { "html", "templ" },
 			},
-			htmx = {
-				filetypes = { "html" },
+			templ = {
+				on_attach = on_attach(),
+				capabilities = capabilities,
+				filetypes = { "templ" },
+				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", "go.sum", ".git"),
 			},
 			cssls = {},
 			tailwindcss = {

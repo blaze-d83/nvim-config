@@ -18,6 +18,7 @@ vim.g.mapleader = " "
 vim.g.have_nerd_font = true
 vim.bo.autoindent = false
 vim.o.swapfile = false
+vim.o.conceallevel = 1
 vim.wo.number = true
 vim.wo.cursorline = true
 

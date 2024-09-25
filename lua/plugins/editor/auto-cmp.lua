@@ -36,27 +36,27 @@ return {
                 documentation = cmp.config.window.bordered(),
             },
 			mapping = cmp.mapping.preset.insert({
-				["<C-n>"]     = cmp.mapping.select_next_item(),
-				["<C-u>"]     = cmp.mapping.select_prev_item(),
-				["<C-b>"]     = cmp.mapping.scroll_docs(-4),
-				["<C-f>"]     = cmp.mapping.scroll_docs(4),
-				["<C-y>"]     = cmp.mapping.confirm({ select = true }),
-				["<C-Space>"] = cmp.mapping.complete({}),
+				["<C-n>"]     = cmp.mapping.select_next_item(), -- Navigate to the next item
+				["<C-p>"]     = cmp.mapping.select_prev_item(), -- Navigate to the prev item
+				["<C-b>"]     = cmp.mapping.scroll_docs(-4), -- Scroll documentation up
+				["<C-f>"]     = cmp.mapping.scroll_docs(4), --  Scroll documentation down
+				["<C-y>"]     = cmp.mapping.confirm({ select = true }), -- Confirm selection
+				["<C-Space>"] = cmp.mapping.complete({}), -- Trigger completion menu
 				["<C-l>"]     = cmp.mapping(function()
 					if luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
 					end
-				end, { "i", "s" }),
+				end, { "i", "s" }), -- Jump forware in next snippet
 				["<C-h>"] = cmp.mapping(function()
 					if luasnip.locally_jumpable(-1) then
 						luasnip.jump(-1)
 					end
-				end, { "i", "s" }),
+				end, { "i", "s" }), -- Jump backward in snippet
 			}),
 			sources = {
-				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
-				{ name = "path" },
+				{ name = "nvim_lsp" }, -- LSP based autocompletion
+				{ name = "luasnip" }, -- Snippet-based autocompletion
+				{ name = "path" }, -- Path based autocompletion
 			},
 		})
 	end,
