@@ -77,7 +77,7 @@ return {
 
 			gopls = {
 				filetypes = { "go", "gomod", "gotmpl", "gowork", },
-				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", ".git"),
+				root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", "go.sum", ".git"),
 			},
 
 			tsserver = {
