@@ -47,23 +47,22 @@ vim.keymap.set("n", "<leader>bx", ":BufferLineCloseOthers<CR>", { desc = "Buffer
 
 -- Clear LSP Logs
 vim.keymap.set("n", "<leader>cl", function()
-	vim.fn.jobstart(
-		{
-			"powershell.exe",
-			"-NoProfile",
-			"-ExecutionPolicy",
-			"Bypass",
-			"C:\\Users\\Admin\\AppData\\Local\\nvim\\lua\\scripts\\ClearLspLog.ps1",
-		},
-		{
-			on_exit = function(_, code)
-				if code == 0 then
-					vim.api.nvim_echo({ { "LSP log cleared successfully!", "Normal" } }, false, {})
-				else
-					vim.api.nvim_echo({ { "Failed to clear LSP log.", "ErrorMsg" } }, false, {})
-				end
-			end,
-		}
-	)
-end, { noremap = true, silent = true })
+	vim.fn.jobstart({
+		"powershell.exe",
+		"-NoProfile",
+		"-ExecutionPolicy",
+		"Bypass",
+		"C:\\Users\\Admin\\AppData\\Local\\nvim\\lua\\scripts\\ClearLspLog.ps1",
+	}, {
+		on_exit = function(_, code)
+			if code == 0 then
+				vim.api.nvim_echo({ { "LSP log cleared successfully!", "Normal" } }, false, {})
+			else
+				vim.api.nvim_echo({ { "Failed to clear LSP log.", "ErrorMsg" } }, false, {})
+			end
+		end,
+	})
+end, { noremap = true, silent = true, desc = "Clear LSP Logs" })
+
+
 return {}
