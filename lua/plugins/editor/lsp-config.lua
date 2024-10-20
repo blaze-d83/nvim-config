@@ -93,7 +93,7 @@ return {
 				},
 			},
 			html = {
-				filetypes = { "html", "templ" },
+				filetypes = { "html", "templ", "htmldjango" },
 			},
 			templ = {
 				on_attach = on_attach(),
@@ -103,7 +103,7 @@ return {
 			},
 			cssls = {},
 			tailwindcss = {
-				filetypes = { "templ", "astro", "javascript", "typescript", "react" },
+				filetypes = { "templ", "astro", "javascript", "typescript", "react", "html", "htmldjango" },
 				settings = {
 					tailwindCSS = {
 						includeLanguages = {
