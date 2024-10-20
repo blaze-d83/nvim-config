@@ -20,6 +20,7 @@ vim.keymap.set("n", "N", "Nzz")
 vim.keymap.set("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
 vim.keymap.set("v", "<leader>y", '"+y', { desc = "Yank to clipboard" })
 vim.keymap.set("n", "<leader>Y", '"+Y', { desc = "Yank current line to clipboard" })
+vim.keymap.set("v", "<leader>Y", '"+Y', { desc = "Yank current line to clipboard" })
 
 -- Replace
 vim.keymap.set("n", "<leader>R", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
