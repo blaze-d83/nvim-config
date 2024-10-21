@@ -32,16 +32,50 @@ local themes = {
 		end,
 	},
 
-    ["catppuccin"] = {
-        "catppuccin/nvim",
-         name = "catppuccin",
-         priority = 1000,
-        config = function()
-            require("catppuccin").setup({})
-            vim.cmd([[colorscheme catppuccin]])
-        end,
-    },
+	["darkrose"] = {
+		"water-sucks/darkrose.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("darkrose")
+		end,
+	},
 
+	["lackluster"] = {
+		"slugbyte/lackluster.nvim",
+		lazy = false,
+		priority = 1000,
+		init = function()
+			vim.cmd.colorscheme("lackluster")
+		end,
+	},
+
+	["blue-moon"] = {
+		"kyazdani42/blue-moon",
+		config = function()
+			vim.opt.termguicolors = true
+			vim.cmd("colorscheme blue-moon")
+		end,
+	},
+
+	["deviuspro"] = {
+		"DeviusVim/deviuspro.nvim",
+		lazy = false,
+		priority = 1000,
+		config = function()
+			vim.cmd.colorscheme("deviuspro")
+		end,
+	},
+
+	["catppuccin"] = {
+		"catppuccin/nvim",
+		name = "catppuccin",
+		priority = 1000,
+		config = function()
+			require("catppuccin").setup({})
+			vim.cmd([[colorscheme catppuccin]])
+		end,
+	},
 }
 
 -- Define the variable to hold the selected theme
