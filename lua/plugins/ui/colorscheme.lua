@@ -79,7 +79,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "okai"
+local selected_theme = "rose-pine"
 
 -- Return the table
 return themes[selected_theme]
