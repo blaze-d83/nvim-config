@@ -133,7 +133,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = ""
+local selected_theme = "rose-pine"
 
 -- If no theme is selected (i.e., `selected_theme` is empty or "default"), use the default colorscheme
 if selected_theme == "" or selected_theme == "default" then
