@@ -24,6 +24,7 @@ else
     vim.o.shellredir = ">%s 2>&1"
     vim.o.shellpipe = "2>&1 | tee"
     vim.o.shellxquote = ""
+    vim.env.PATH = vim.env.PATH .. ":/home/linuxbrew/.linuxbrew/bin"
 end
 
 -- Other defaults

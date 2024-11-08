@@ -1,12 +1,12 @@
 return {
     "neovim/nvim-lspconfig",
     dependencies = {
-        "williamboman/mason.nvim",             -- Manage LSP Servers, DAP Servers, and formatters
-        "williamboman/mason-lspconfig.nvim",   -- Bridge between Mason and nvim-lspconfig
+        "williamboman/mason.nvim",                   -- Manage LSP Servers, DAP Servers, and formatters
+        "williamboman/mason-lspconfig.nvim",         -- Bridge between Mason and nvim-lspconfig
         "WhoIsSethDaniel/mason-tool-installer.nvim", -- Automatically install tools using Mason
-        { "j-hui/fidget.nvim", opts = {} },    -- Show LSP status
-        { "folke/neodev.nvim", opts = {} },    -- Better Lua dev experience
-        "jose-elias-alvarez/nvim-lsp-ts-utils", -- TS/JS utilities like organizing imports
+        { "j-hui/fidget.nvim", opts = {} },          -- Show LSP status
+        { "folke/neodev.nvim", opts = {} },          -- Better Lua dev experience
+        "jose-elias-alvarez/nvim-lsp-ts-utils",      -- TS/JS utilities like organizing imports
     },
     config = function()
         vim.lsp.set_log_level("debug")
@@ -62,7 +62,7 @@ return {
                 },
             },
             rust_analyzer = {
-                on_attach = on_attach(),
+                on_attach = on_attach,
                 capabilities = vim.lsp.protocol.make_client_capabilities(),
                 filetype = { "rust" },
                 root_dir = require("lspconfig.util").root_pattern("Cargo.toml"),
@@ -97,7 +97,7 @@ return {
                 filetypes = { "html", "templ", "htmldjango" },
             },
             templ = {
-                on_attach = on_attach(),
+                on_attach = on_attach,
                 capabilities = capabilities,
                 filetypes = { "templ" },
                 root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", "go.sum", ".git"),
@@ -130,7 +130,13 @@ return {
             },
         }
 
-        require("mason").setup()
+        require("mason").setup({
+            ui = { border = "rounded" },
+            log_level = vim.log.levels.DEBUG,
+            npm = {
+                install = { manager = "yarn" },
+            },
+        })
 
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {})
