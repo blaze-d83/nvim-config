@@ -52,6 +52,8 @@ return {
         end
 
         local servers = {
+
+            -- Lua
             lua_ls = {
                 settings = {
                     Lua = {
@@ -61,6 +63,8 @@ return {
                     },
                 },
             },
+
+            -- Rust
             rust_analyzer = {
                 on_attach = on_attach,
                 capabilities = vim.lsp.protocol.make_client_capabilities(),
@@ -75,6 +79,7 @@ return {
                 },
             },
 
+            -- Go
             gopls = {
                 filetypes = { "go", "gomod", "gotmpl", "gowork", },
                 root_dir = require("lspconfig.util").root_pattern("go.work", "go.mod", "go.sum", ".git"),
@@ -96,6 +101,7 @@ return {
             html = {
                 filetypes = { "html", "templ", "htmldjango" },
             },
+
             templ = {
                 on_attach = on_attach,
                 capabilities = capabilities,
@@ -138,6 +144,11 @@ return {
             },
         })
 
+        local jdtls_path = "~/.local/share/nvim/mason/packages/jdtls/"
+        local launcher_jar = jdtls_path .. "/plugins/org.eclipse.equinox.launcher_1.6.900.v20240613-2009.jar"
+        local config_path = jdtls_path .. "config_linux/"
+        local workspace_dir = vim.fn.stdpath('data') ..
+        '/jdtls-workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')
         local ensure_installed = vim.tbl_keys(servers or {})
         vim.list_extend(ensure_installed, {})
         require("mason-tool-installer").setup({ ensure_installed = ensure_installed })

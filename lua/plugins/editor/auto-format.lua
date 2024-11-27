@@ -26,7 +26,8 @@ return {
             zig        = {"fmt.zig"},
             json       = { "prettier" },
             jsonc      = { "prettier" },
-            templ      = { "templ" }
+            templ      = { "templ" },
+            sql        = { "sqlfmt" }
 			-- Add more languages and corresponding formatters here
 		},
 	},
