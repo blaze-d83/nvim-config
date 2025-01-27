@@ -74,6 +74,15 @@ local themes = {
         end,
     },
 
+    -- Kanagawa paper
+    ["kanagawa-paper"] = {
+        "thesimonho/kanagawa-paper.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+
+    },
+
     -- No Clown Fiesta theme
     ["no-clown-fiesta"] = {
         "aktersnurra/no-clown-fiesta.nvim",
@@ -133,7 +142,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "kanagawa"
+local selected_theme = "melliflous"
 
 -- If no theme is selected (i.e., `selected_theme` is empty or "default"), use the default colorscheme
 if selected_theme == "" or selected_theme == "default" then
