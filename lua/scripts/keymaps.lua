@@ -3,11 +3,11 @@ vim.keymap.set("n", "<leader>w", ":w<CR>", { desc = "Save" })
 
 -- Highlight text on yank
 vim.api.nvim_create_autocmd("textyankpost", {
-	desc = "highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("highligh-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+    desc = "highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("highligh-yank", { clear = true }),
+    callback = function()
+        vim.highlight.on_yank()
+    end,
 })
 
 -- Navigation
@@ -46,24 +46,21 @@ vim.keymap.set("n", "<leader>bl", ":BufferLinePick<CR>", { desc = "Buffer Line P
 vim.keymap.set("n", "<leader>bd", ":BufferLinePickClose<CR>", { desc = "Buffer Line Pick Close" })
 vim.keymap.set("n", "<leader>bx", ":BufferLineCloseOthers<CR>", { desc = "Buffer Close Others" })
 
--- Clear LSP Logs
-vim.keymap.set("n", "<leader>cl", function()
-	vim.fn.jobstart({
-		"powershell.exe",
-		"-NoProfile",
-		"-ExecutionPolicy",
-		"Bypass",
-		"C:\\Users\\Admin\\AppData\\Local\\nvim\\lua\\scripts\\ClearLspLog.ps1",
-	}, {
-		on_exit = function(_, code)
-			if code == 0 then
-				vim.api.nvim_echo({ { "LSP log cleared successfully!", "Normal" } }, false, {})
-			else
-				vim.api.nvim_echo({ { "Failed to clear LSP log.", "ErrorMsg" } }, false, {})
-			end
-		end,
-	})
-end, { noremap = true, silent = true, desc = "Clear LSP Logs" })
+local function clear_lsp_log()
+    local log_file = vim.fn.expand("~/.local/state/nvim/lsp.log")
+    if vim.loop.fs_stat(log_file) then
+        local ok, err = os.remove(log_file)
+        if ok then
+            vim.api.nvim_echo({ { "LSP log file removed successfully!", "Normal" } }, false, {})
+        else
+            vim.api.nvim_echo({ { "Failed to remove LSP log file: " .. (err or "unknown error"), "ErrorMsg" } }, false,
+                {})
+        end
+    else
+        vim.api.nvim_echo({ { "LSP log file does not exist.", "ErrorMsg" } }, false, {})
+    end
+end
 
+vim.keymap.set("n", "<leader>cl", clear_lsp_log, { noremap = true, silent = true, desc = "Clear LSP Logs" })
 
 return {}
