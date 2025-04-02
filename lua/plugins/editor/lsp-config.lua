@@ -123,15 +123,17 @@ return {
 
 
             -- Python LSP
-            pyright = {
-                settings = {
-                    python = {
-                        analysis = {
-                            typeCheckingMode = "off",
-                        },
-                    },
-                },
+            ruff = {
             },
+            -- pyright = {
+            --     settings = {
+            --         python = {
+            --             analysis = {
+            --                 typeCheckingMode = "off",
+            --             },
+            --         },
+            --     },
+            -- },
 
 
             zls = {},

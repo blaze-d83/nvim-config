@@ -12,6 +12,7 @@ local themes = {
         end,
     },
 
+    -- Shadow theme
     ["shadow"] = {
         "rjshkhr/shadow.nvim",
         priority = 1000,
@@ -151,7 +152,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "shadow"
+local selected_theme = ""
 
 -- If no theme is selected (i.e., `selected_theme` is empty or "default"), use the default colorscheme
 if selected_theme == "" or selected_theme == "default" then
