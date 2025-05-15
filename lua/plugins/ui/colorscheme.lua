@@ -152,7 +152,7 @@ local themes = {
 }
 
 -- Define the variable to hold the selected theme
-local selected_theme = "zenbones"
+local selected_theme = "no-clown-fiesta"
 
 -- If no theme is selected (i.e., `selected_theme` is empty or "default"), use the default colorscheme
 if selected_theme == "" or selected_theme == "default" then
